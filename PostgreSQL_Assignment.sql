@@ -6,17 +6,17 @@ DROP TABLE IF EXISTS sightings;
 --rangers
 CREATE TABLE rangers (
     ranger_id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    region TEXT NOT NULL
+    name VARCHAR(50) NOT NULL,
+    region VARCHAR(50) NOT NULL
 );
 
 --species
 CREATE TABLE species (
     species_id SERIAL PRIMARY KEY,
-    common_name TEXT NOT NULL,
-    scientific_name TEXT NOT NULL,
+    common_name VARCHAR(50) NOT NULL,
+    scientific_name VARCHAR(50) NOT NULL,
     discovery_date DATE NOT NULL,
-    conservation_status TEXT DEFAULT 'Unknown' CHECK (
+    conservation_status VARCHAR(50) DEFAULT 'Unknown' CHECK (
         conservation_status IN ('Endangered', 'Vulnerable', 'Historic', 'Unknown')
     )
 );
@@ -26,7 +26,7 @@ CREATE TABLE sightings (
     sighting_id SERIAL PRIMARY KEY,
     species_id INT REFERENCES species(species_id),
     ranger_id INT REFERENCES rangers(ranger_id),
-    location TEXT NOT NULL,
+    location VARCHAR(250) NOT NULL,
     sighting_time TIMESTAMP NOT NULL,
     notes TEXT
 );
