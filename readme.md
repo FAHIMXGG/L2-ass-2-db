@@ -49,10 +49,10 @@ INNER JOIN
 
 ```sql
 Name 	DepartmentName
-রহিম	HR
-করিম	Finance
-সলিম	HR
-রুবিনা	IT
+Rohim	HR
+korim	Finance
+solim	HR
+rubina	IT
 ```
 ```sql
 SELECT s.common_name
